@@ -5,48 +5,49 @@ abstract class Humano {
     private int idade;
     private int pontosVida;
     private int pontosEnergia;
-    private Item ArrayList<Item>
+    private ArrayList<Item> itens;
     
-    public Humano(String nome, int idade, int pontosVida, int pontosEnergia) {
+    public Humano(String nome, int idade) {
         this.nome = nome;
         this.idade = idade;
-        this.pontosVida = pontosVida;
-        this.pontosEnergia = pontosEnergia;
-        this.ArrayList = new ArrayList<Item>();
+        this.pontosVida = 100;
+        this.pontosEnergia = 100;
+        this.itens = new ArrayList<Item>();
     }
-    
+
     public String getNome() {
         return nome;
-    }
-    
-    public int getIdade() {
-        return idade;
     }
     
     public int getPontosVida() {
         return pontosVida;
     }
-    
-    public int getPontosMagia() {
-        return pontosMagia;
+
+    public int getIdade(){
+        return idade;
     }
     
-    public void setPontosVida(int pontosVida) {
-        this.pontosVida = pontosVida;
+    public int getPontosEnergia() {
+        return pontosEnergia;
     }
-    
-    public void setPontosMagia(int pontosMagia) {
-        this.pontosMagia = pontosMagia;
+
+    public int usarItem() {
+        int danoTotal = 0;
+        for (Item item : itens) {
+            danoTotal += item.getDano();
+            item.usar();
+        }
+        return danoTotal;
     }
 
     public void addItem(Item item) {
-        listaItens.add(item);
+        itens.add(item);
         System.out.println("Item '" + item.getNome() + "' adicionado à lista de itens de " + nome + ".");
     }
     
     public abstract void falar();
     public abstract void caminhar();
-    public abstract void atacar(Humano alvo);
-    public abstract void usarMagia(Humano alvo);
+    public abstract void atacar(Monstro alvo);
+    public abstract void usarMagia(Monstro alvo);
     public abstract void descansar();
 }
