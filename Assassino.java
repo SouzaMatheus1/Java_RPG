@@ -1,3 +1,5 @@
+import java.util.UUID;
+
 class Assassino extends Humano {
     private int pontosStamina;
 
@@ -24,13 +26,13 @@ class Assassino extends Humano {
         System.out.println("*O assassino se move silenciosamente.*");
     }
 
-    @Override
-    public void atacar(Monstro alvo, Item item) {
+    public int atacar(Monstro alvo, UUID id) {
         falar();
+        Item item = selectItem(id);
         System.out.println("O assassino ataca " + alvo.getNome() + " com " + item.getNome() + " e causa: " + item.getDano());
-        int danoTotal = item.getDano() + usarItem();
-        alvo.setPontosVida(alvo.getPontosVida() - danoTotal);
-        // Lógica de ataque específica do assassino
+        
+        alvo.setPontosVida(alvo.getPontosVida() - item.getDano());
+        return item.getDano();
     }
 
     public void concentrar(){

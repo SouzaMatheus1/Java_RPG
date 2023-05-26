@@ -114,6 +114,6 @@ abstract class Humano{
 
     public abstract void falar();
     public abstract void caminhar();
-    public abstract void atacar(Monstro alvo, Item item);
     public abstract void descansar();
+    public abstract int atacar(Monstro alvo, UUID id);
 }

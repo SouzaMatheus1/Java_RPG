@@ -1,6 +1,3 @@
-import java.util.Scanner;
-import java.util.UUID;
-
 public class Main {
     public static void main(String[] args) {
         // Criando humanos
@@ -29,12 +26,13 @@ public class Main {
         Troll trundle = new Troll("Trundle", 600, 200);
         Ciclope crom = new Ciclope("Crom", 650, 110);
 
-        talon.receberDano(trundle.atacar(talon));
-        System.out.println(talon.getPontosVida());
-        patolino.receberDano(crom.atacar(patolino));
-        System.out.println(patolino.getPontosVida());
+        // talon.receberDano(trundle.atacar(talon));
+        // System.out.println(talon.getPontosVida());
+        // patolino.receberDano(crom.atacar(patolino));
+        // System.out.println(patolino.getPontosVida());
 
-
+        trundle.receberDano(talon.atacar(crom, espada.getId()));
+        System.out.println(trundle.getPontosVida());
 
     }
 }

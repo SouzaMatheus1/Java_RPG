@@ -1,3 +1,5 @@
+import java.util.UUID;
+
 class Mago extends Humano {
     private double pontosMana;
 
@@ -25,12 +27,13 @@ class Mago extends Humano {
     }
 
     @Override
-    public void atacar(Monstro alvo, Item item) {
+    public int atacar(Monstro alvo, UUID id) {
         falar();
+        Item item = selectItem(id);
         System.out.println("O mago ataca " + alvo.getNome() + " com um feitiço e causa: " + item.getDano() + "!");
         int danoTotal = item.getDano() + usarItem();
         alvo.setPontosVida(alvo.getPontosVida() - danoTotal);
-        // Lógica de ataque específica do mago
+        return danoTotal;
     }
 
     public void usarMagia() {
