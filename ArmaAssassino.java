@@ -1,3 +1,5 @@
+import java.util.UUID;
+
 class ArmaAssassino extends Item {
     private int dano;
     private int pontosEnergia;
@@ -14,6 +16,10 @@ class ArmaAssassino extends Item {
 
     public int getPontosEnergia(){
         return pontosEnergia;
+    }
+
+    public UUID getId(){
+        return id;
     }
 
     public int setPontosEnergia(int energiaGasta){

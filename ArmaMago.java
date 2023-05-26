@@ -1,3 +1,5 @@
+import java.util.UUID;
+
 class ArmaMago extends Item {
     private int dano;
     private int pontosMana;
@@ -14,6 +16,10 @@ class ArmaMago extends Item {
 
     public int getPontosMana(){
         return pontosMana;
+    }
+
+    public UUID getId(){
+        return id;
     }
 
     public int setPontosMana(int manaGasta){

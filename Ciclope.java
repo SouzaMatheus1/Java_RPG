@@ -1,9 +1,6 @@
 class Ciclope extends Monstro {
-    private int dano;
-
     public Ciclope(String nome, int pontosVida, int dano){
-        super(nome, pontosVida);
-        this.dano = dano;
+        super(nome, pontosVida, dano);
     }
 
     public int atacar(Humano alvo) {

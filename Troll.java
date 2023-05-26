@@ -1,9 +1,6 @@
 class Troll extends Monstro{
-    private int dano;
-    
     public Troll(String nome, int pontosVida, int dano){
-        super(nome, pontosVida);
-        this.dano = dano;
+        super(nome, pontosVida, dano);
     }
 
     public int atacar(Humano alvo) {

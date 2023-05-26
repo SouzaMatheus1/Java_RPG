@@ -1,10 +1,12 @@
 abstract class Monstro {
     protected String nome;
+    protected int dano;
     private int pontosVida;
 
-    public Monstro(String nome, int pontosVida) {
+    public Monstro(String nome, int pontosVida, int dano) {
         this.nome = nome;
         this.pontosVida = pontosVida;
+        this.dano = dano;
     }
 
     public String getNome() {
@@ -19,7 +21,12 @@ abstract class Monstro {
         this.pontosVida = pontosVida;
     }
 
-    public abstract int atacar(Humano alvo);
+    public int atacar(Humano alvo) {
+        int dano = this.dano; // Usar o valor de dano do monstro
+        alvo.receberDano(dano);
+        return dano;
+    }
+
     public abstract void receberDano(int quantidade);
     public abstract void agir();
     public abstract String gritar();
