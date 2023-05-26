@@ -6,17 +6,21 @@ class Assassino extends Humano {
         this.pontosStamina = pontosStamina;
     }
 
-    public int getPontosEnergia() {
-        return pontosEnergia;
+    public int getPontosStamina() {
+        return pontosStamina;
     }
 
-    public void setPontosEnergia(int pontosEnergia) {
-        this.pontosEnergia = pontosEnergia;
+    public void getPontosStamina(int pontosStamina){
+        this.pontosStamina = pontosStamina;
+    }
+
+    public void setPontosVida(){
+
     }
 
     @Override
     public void falar() {
-        System.out.println("O mestre das sombras retornou!.");
+        System.out.println("O mestre das sombras retornou!");
     }
 
     @Override
@@ -25,19 +29,23 @@ class Assassino extends Humano {
     }
 
     @Override
-    public void atacar(Monstro alvo, Item item]) {
-        System.out.println("O assassino ataca " + alvo.getNome() + " com " + item.getNome() + ".");
+    public void atacar(Monstro alvo, Item item) {
+        falar();
+        System.out.println("O assassino ataca " + alvo.getNome() + " com " + item.getNome() + " e causa: " + item.getDano());
+        int danoTotal = item.getDano() + usarItem();
+        alvo.setPontosVida(alvo.getPontosVida() - danoTotal);
         // Lógica de ataque específica do assassino
     }
 
-    @Override
-    public void usarMagia(Monstro alvo) {
-        System.out.println("O assassino não possui habilidades mágicas.");
-    }
+    public void concentrar(){
+        System.out.println("O assassino se concentra, aumentando seu foco!");    }
 
     @Override
     public void descansar() {
         System.out.println("O assassino se esconde nas sombras para descansar.");
+        int pontosRec = pontosStamina + 10;
+        this.pontosStamina = pontosRec;
+        System.out.println("Recuperou: " + pontosRec + " pontos de stamina!");
         // Lógica de recuperação de energia específica do assassino
     }
 }

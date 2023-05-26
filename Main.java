@@ -3,16 +3,18 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         // Criando um objeto Humano
-        Humano humano = new Assassino("John", 25);
+        Mago patolino = new Mago("Mago Pato", 238, 1000);
+        Assassino talon = new Assassino("Talon", 26, 200);
+
 
         // Criando objetos ItemMago e ItemAssassino
-        Item armaMago = new CajadoDoVazio("Pergaminho Arcano", 0.5, 0, 50);
-        Item armaAssa = new AdagaSanguinaria("Poção de Energia", 0.2, 0, 30);
+        ArmaMago cajado = new ArmaMago("Cajado do vazio", 0.7, 100);
+        ArmaAssassino adaga = new ArmaAssassino("Lâmina Sanguinária", 1.2, 39);
 
         // Adicionando os itens ao inventário do humano
-        humano.addItem(armaMago);
-        humano.addItem(armaAssa);
+        patolino.addItem(cajado);
+        talon.addItem(adaga);
 
-        
+        System.out.println(patolino.getNome());
     }
 }

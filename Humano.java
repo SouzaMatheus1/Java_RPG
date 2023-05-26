@@ -44,10 +44,10 @@ abstract class Humano {
         itens.add(item);
         System.out.println("Item '" + item.getNome() + "' adicionado à lista de itens de " + nome + ".");
     }
-    
+
     public abstract void falar();
     public abstract void caminhar();
-    public abstract void atacar(Monstro alvo);
-    public abstract void usarMagia(Monstro alvo);
+    public abstract void atacar(Monstro alvo, Item item);
     public abstract void descansar();
+    public abstract void setPontosVida();
 }

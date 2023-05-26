@@ -1,12 +1,14 @@
 abstract class Item{
-    private String nome;
+    protected String nome;
     private double peso;
-    private int dano;
 
-    public Item(String nome, double peso, int dano){
+    public Item(String nome, double peso){
         this.nome = nome;
         this.peso = peso;
-        this.dano = dano;
+    }
+
+    public double getPeso(){
+        return peso;
     }
 
     public String getNome(){
@@ -17,7 +19,6 @@ abstract class Item{
         return "Você conseguiu o  item: " + nome + "!!";
     }
 
-    public abstract double getPeso();
-    public abstract int getDano();
     public abstract void usar();
+    public abstract int getDano();
 }

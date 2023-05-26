@@ -15,7 +15,7 @@ abstract class Monstro {
         return pontosVida;
     }
 
-    public void setPontosVida(int pontosVida) {
+    public void setPontosVida(int pontosVida){
         this.pontosVida = pontosVida;
     }
 
