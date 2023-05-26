@@ -27,11 +27,11 @@ public class Main {
 
         // Criando monstros
         Troll trundle = new Troll("Trundle", 600, 200);
-        Troll grugnar = new Troll("Grugnar", 650, 170);
+        Ciclope crom = new Ciclope("Crom", 650, 110);
 
         talon.receberDano(trundle.atacar(talon));
         System.out.println(talon.getPontosVida());
-        patolino.receberDano(grugnar.atacar(patolino));
+        patolino.receberDano(crom.atacar(patolino));
         System.out.println(patolino.getPontosVida());
 
 

@@ -6,6 +6,8 @@ abstract class Humano{
     private int idade;
     private int pontosVida;
     private int pontosEnergia;
+    private double defesa;
+    private double esquiva;
     private ArrayList<Item> itens;
     
     public Humano(String nome, int idade){
@@ -13,6 +15,8 @@ abstract class Humano{
         this.idade = idade;
         this.pontosVida = 100;
         this.pontosEnergia = 100;
+        this.esquiva = 0.2 * (this.pontosVida + this.pontosEnergia);
+        this.defesa = 0.14 * (this.pontosVida + this.pontosEnergia);
         this.itens = new ArrayList<Item>();
     }
 
@@ -88,11 +92,23 @@ abstract class Humano{
     }
 
     // Combate
-    public void receberDano(int quantidade) {
-        this.pontosVida -= quantidade;
-        System.out.println("O humano recebe " + quantidade + " pontos de dano.");
-        if (pontosVida <= 0) {
-            System.out.println("O humano foi derrotado.");
+    public void receberDano(int quantidade){
+        double chanceEsquiva = Math.random(); // Gera um número aleatório entre 0 e 1
+    
+        if(chanceEsquiva <= esquiva){
+            System.out.println(nome + " esquivou e não recebeu dano!");
+        }else{
+            double danoFinal = quantidade - defesa;
+            if(danoFinal > 0){
+                this.pontosVida -= danoFinal;
+                System.out.println(nome + " recebeu " + danoFinal + " pontos de dano.");
+                
+                if(pontosVida <= 0){
+                    System.out.println("O humano foi derrotado.");
+                }
+            }else{
+                System.out.println("O humano defendeu-se completamente do golpe e não recebeu dano!");
+            }
         }
     }
 

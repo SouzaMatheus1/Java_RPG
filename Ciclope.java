@@ -4,6 +4,7 @@ class Ciclope extends Monstro {
     }
 
     public int atacar(Humano alvo) {
+        gritar();
         System.out.println("O Ciclope ataca " + alvo.getNome() + " causando " + dano + " pontos de dano.");
         return dano;
     }
@@ -13,8 +14,8 @@ class Ciclope extends Monstro {
         setPontosVida(getPontosVida() - quantidade);
     }
 
-    public String gritar(){
-        return "PARE DE SE MEXER, TENHO APENAS UM OLHO!";
+    public void gritar(){
+        System.out.println("PARE DE SE MEXER, TENHO APENAS UM OLHO!");
     }
 
     public void agir() {

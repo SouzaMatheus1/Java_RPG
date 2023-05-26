@@ -29,5 +29,5 @@ abstract class Monstro {
 
     public abstract void receberDano(int quantidade);
     public abstract void agir();
-    public abstract String gritar();
+    public abstract void gritar();
 }

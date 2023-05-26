@@ -4,6 +4,7 @@ class Troll extends Monstro{
     }
 
     public int atacar(Humano alvo) {
+        gritar();
         System.out.println("O troll ataca " + alvo.getNome() + " causando " + dano + " pontos de dano.");
         return dano;
     }
@@ -13,8 +14,8 @@ class Troll extends Monstro{
         setPontosVida(getPontosVida() - quantidade);
     }
 
-    public String gritar(){
-        return "É HORA DE TROLLAR!";
+    public void gritar(){
+        System.out.println("É HORA DE TROLLAR!");
     }
 
     public void agir() {
