@@ -1,5 +1,5 @@
 abstract class Monstro {
-    private String nome;
+    protected String nome;
     private int pontosVida;
 
     public Monstro(String nome, int pontosVida) {
@@ -19,7 +19,8 @@ abstract class Monstro {
         this.pontosVida = pontosVida;
     }
 
-    public abstract void atacar(Humano alvo);
+    public abstract int atacar(Humano alvo);
     public abstract void receberDano(int quantidade);
     public abstract void agir();
+    public abstract String gritar();
 }

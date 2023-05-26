@@ -10,12 +10,8 @@ class Assassino extends Humano {
         return pontosStamina;
     }
 
-    public void getPontosStamina(int pontosStamina){
+    public void setPontosStamina(int pontosStamina){
         this.pontosStamina = pontosStamina;
-    }
-
-    public void setPontosVida(){
-
     }
 
     @Override

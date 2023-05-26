@@ -49,5 +49,4 @@ abstract class Humano {
     public abstract void caminhar();
     public abstract void atacar(Monstro alvo, Item item);
     public abstract void descansar();
-    public abstract void setPontosVida();
 }

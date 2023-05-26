@@ -11,11 +11,7 @@ class Mago extends Humano {
     }
 
     public void setPontosMana(double manaGasta) {
-        this.pontosMana = this.pontosMana - manaGasta;
-    }
-
-    public void setPontosVida() {
-        
+        this.pontosMana -= manaGasta;
     }
 
     @Override

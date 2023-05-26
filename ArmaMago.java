@@ -19,7 +19,7 @@ class ArmaMago extends Item {
     public int setPontosMana(int manaGasta){
         int manaTotal = getPontosMana() - manaGasta;
         pontosMana = manaTotal;
-        return manaGasta;
+        return pontosMana;
     }
 
     @Override
