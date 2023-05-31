@@ -1,3 +1,4 @@
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -15,8 +16,8 @@ abstract class Humano{
         this.idade = idade;
         this.pontosVida = 100;
         this.pontosEnergia = 100;
-        this.esquiva = 0.2 * (this.pontosVida + this.pontosEnergia);
-        this.defesa = 0.14 * (this.pontosVida + this.pontosEnergia);
+        this.esquiva = (0.2 * (this.pontosVida + this.pontosEnergia))/100;
+        this.defesa = (0.14 * (this.pontosVida + this.pontosEnergia))/1.5;
         this.itens = new ArrayList<Item>();
     }
 
@@ -77,6 +78,11 @@ abstract class Humano{
     }
 
     public void addItem(Item item){
+        for(Item itemBolsa : itens){
+            if(itemBolsa instanceof ItemDefesa){
+                    equiparItem((ItemDefesa)item);
+                }
+            }
         itens.add(item);
         System.out.println("Item '" + item.getNome() + "' adicionado a lista de itens de " + nome + ".");
     }
@@ -91,17 +97,38 @@ abstract class Humano{
         }
     }
 
+    public void equiparItem(ItemDefesa item) {
+        // Atualiza os atributos 
+        pontosVida += item.getVida();
+        defesa += item.getDefesa();
+
+        // Avisa usuário
+        System.out.printf("O item %s foi adicionado a bolsa, aumentando a defesa!", item.getNome());
+    }
+
+    public void usarItemCura(ItemCura item){
+        for(Item itemBolsa : itens){
+            if(itemBolsa == item){
+                pontosVida += item.getCura();
+                item.usar();
+            }
+        }
+    }
+
     // Combate
     public void receberDano(int quantidade){
         double chanceEsquiva = Math.random(); // Gera um número aleatório entre 0 e 1
     
         if(chanceEsquiva <= esquiva){
             System.out.println(nome + " esquivou e não recebeu dano!");
+            System.out.println("ESQUIVA: " + esquiva);
+            System.out.println("CHANCEESQUIVA: " + chanceEsquiva);
         }else{
             double danoFinal = quantidade - defesa;
             if(danoFinal > 0){
                 this.pontosVida -= danoFinal;
                 System.out.println(nome + " recebeu " + danoFinal + " pontos de dano.");
+                System.out.println("DEFESA: "+defesa);
                 
                 if(pontosVida <= 0){
                     System.out.println("O humano foi derrotado.");

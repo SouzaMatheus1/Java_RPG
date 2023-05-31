@@ -11,28 +11,24 @@ public class Main {
         // Criando itens de assassino
         ArmaAssassino adaga = new ArmaAssassino("Lamina Sanguinaria", 1.2, 39);
         ArmaAssassino espada = new ArmaAssassino("Adaga Sombria", 6.7, 98);
+
+        // Criando itens de cura e defesa
+        ItemCura pocaoDivida = new ItemCura("Pocao Divina", 0.50, 23);
+        ItemDefesa escudo = new ItemDefesa("Escudo de mao", 3.0, 4.4, 10);
         
         // Adicionando os itens ao inventário do Mago
         patolino.addItem(cajado);
         patolino.addItem(sufIg);
+        patolino.addItem(escudo);
 
         // Adicionando os itens ao inventário do Assasino
         talon.addItem(adaga);
         talon.addItem(espada);
+        talon.addItem(escudo);
 
         // ================================== // // ================================== // 
 
         // Criando monstros
-        Troll trundle = new Troll("Trundle", 600, 200);
-        Ciclope crom = new Ciclope("Crom", 650, 110);
-
-        // talon.receberDano(trundle.atacar(talon));
-        // System.out.println(talon.getPontosVida());
-        // patolino.receberDano(crom.atacar(patolino));
-        // System.out.println(patolino.getPontosVida());
-
-        trundle.receberDano(talon.atacar(crom, espada.getId()));
-        System.out.println(trundle.getPontosVida());
-
+        
     }
 }
