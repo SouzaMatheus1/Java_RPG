@@ -22,4 +22,9 @@ class Troll extends Monstro{
         gritar();
         System.out.println("*O troll age de forma agressiva.*");
     }
+
+    @Override
+    public String ultimaFrase(){
+        return "me matarão";
+    }
 }
