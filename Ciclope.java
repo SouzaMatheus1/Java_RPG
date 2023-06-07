@@ -22,4 +22,9 @@ class Ciclope extends Monstro {
         gritar();
         System.out.println("*O Ciclope age de forma descontrolada.*");
     }
+
+    @Override
+    public String ultimaFrase(){
+        return "eu voltarei!";
+    }
 }

@@ -19,7 +19,7 @@ public class Main {
         // Adicionando os itens ao inventário do Mago
         patolino.addItem(cajado);
         patolino.addItem(sufIg);
-        patolino.addItem(escudo);
+        patolino.addItem(pocaoDivida);
 
         // Adicionando os itens ao inventário do Assasino
         talon.addItem(adaga);
@@ -29,6 +29,9 @@ public class Main {
         // ================================== // // ================================== // 
 
         // Criando monstros
+        Troll trundle = new Troll("Trundle", 500, 100);
+        Ciclope enum = new Ciclope("Enum", 450, 130);
+
         
     }
 }
