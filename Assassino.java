@@ -36,7 +36,8 @@ class Assassino extends Humano {
     }
 
     public void concentrar(){
-        System.out.println("O assassino se concentra, aumentando seu foco!");    }
+        System.out.printf("%S se concentra, aumentando seu foco!", getNome());
+    }
 
     @Override
     public void descansar() {

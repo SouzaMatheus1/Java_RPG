@@ -30,6 +30,7 @@ abstract class Monstro {
     public abstract void receberDano(int quantidade);
     public abstract void agir();
     public abstract void gritar();
+    
     public String ultimaFrase(){
         return "Ah! :(";
     }

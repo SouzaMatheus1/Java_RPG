@@ -1,5 +1,7 @@
 public class Main {
     public static void main(String[] args) {
+        JogoGUI jogo = new JogoGUI();
+        jogo.exibir();
         // Criando humanos
         Mago patolino = new Mago("Mago Pato", 238, 1000);
         Assassino talon = new Assassino("Talon", 26, 200);
@@ -30,7 +32,21 @@ public class Main {
 
         // Criando monstros
         Troll trundle = new Troll("Trundle", 500, 100);
-        Ciclope enum = new Ciclope("Enum", 450, 130);
+        Ciclope crom = new Ciclope("Crom", 450, 130);
+
+        talon.receberDano(trundle.atacar(talon));
+        System.out.println(talon.getPontosVida());
+
+        patolino.receberDano(crom.atacar(patolino));
+        System.out.println(patolino.getPontosVida());
+
+        // talon.receberDano(trundle.atacar(talon));
+        // System.out.println(talon.getPontosVida());
+        // patolino.receberDano(crom.atacar(patolino));
+        // System.out.println(patolino.getPontosVida());
+
+        // trundle.receberDano(talon.atacar(crom, espada.getId()));
+        // System.out.println(trundle.getPontosVida());
 
         
     }
