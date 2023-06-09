@@ -17,8 +17,8 @@ class Mago extends Humano {
     }
 
     @Override
-    public void falar() {
-        System.out.println("O mago fala palavras de poder.");
+    public String falar() {
+        return "O mago fala palavras de poder.";
     }
 
     @Override
@@ -44,11 +44,11 @@ class Mago extends Humano {
     }
 
     @Override
-    public void descansar() {
+    public String descansar() {
         System.out.println("O mago medita para recperar sua energia mágica.");
         double pontosRec = pontosMana + 10;
         this.pontosMana = pontosRec;
-        System.out.println("Recuperou: " + pontosRec + " pontos de mana!");
+        return "Recuperou: " + pontosRec + " pontos de mana!";
         // Lógica de recuperação de mana específica do mago
     }
 }

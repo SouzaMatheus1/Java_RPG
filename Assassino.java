@@ -17,8 +17,8 @@ class Assassino extends Humano {
     }
 
     @Override
-    public void falar() {
-        System.out.println("O mestre das sombras retornou!");
+    public String falar() {
+        return "O mestre das sombras retornou!";
     }
 
     @Override
@@ -40,11 +40,11 @@ class Assassino extends Humano {
     }
 
     @Override
-    public void descansar() {
+    public String descansar() {
         System.out.println("O assassino se esconde nas sombras para descansar.");
         int pontosRec = pontosStamina + 10;
         this.pontosStamina = pontosRec;
-        System.out.println("Recuperou: " + pontosRec + " pontos de stamina!");
+        return "Recuperou: " + pontosRec + " pontos de stamina!";
         // Lógica de recuperação de energia específica do assassino
     }
 }
