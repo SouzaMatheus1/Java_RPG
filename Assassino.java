@@ -43,8 +43,8 @@ class Assassino extends Humano {
     public String descansar() {
         System.out.println("O assassino se esconde nas sombras para descansar.");
         int pontosRec = pontosStamina + 10;
+        String texto = "O assassino se esconde nas sombras para descansar." + "\n" + this.getNome() + " recuperou: " + pontosRec + " pontos de stamina!";
         this.pontosStamina = pontosRec;
-        return "Recuperou: " + pontosRec + " pontos de stamina!";
-        // Lógica de recuperação de energia específica do assassino
+        return texto;
     }
 }
