@@ -82,7 +82,7 @@ public class JogoGUI extends JFrame {
                 janelaMago.setSize(400,300);
                 janelaMago.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 janelaMago.setVisible(true);
-                painelPrincipal.setEnabled(false);
+                painelPrincipal.setVisible(false);
             }
         });
 
