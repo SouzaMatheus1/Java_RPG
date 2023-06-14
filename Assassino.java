@@ -2,7 +2,18 @@ import java.util.UUID;
 
 class Assassino extends Humano {
     private int pontosStamina;
+    
+  /*  
+    private int codigo;
+ 
+    public int getCodigo(){
+        return codigo;
+    }
 
+    public void setCodigo (int codigo){
+        this.codigo = codigo;
+    }
+/*/
     public Assassino(String nome, int idade, int pontosStamina) {
         super(nome, idade);
         this.pontosStamina = pontosStamina;
