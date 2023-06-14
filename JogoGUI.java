@@ -4,10 +4,10 @@ import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
-import javax.swing.UIDefaults.LazyValue;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -35,7 +35,7 @@ public class JogoGUI extends JFrame {
             personagemNome = obterNomePersonagem();
         } catch (EntradaInvalidaException e) {
             JOptionPane.showMessageDialog(this, "Nome de personagem inválido: " + e.getMessage());
-            personagemNome = "Personagem Anônimo";
+            personagemNome = "Personagem anônimo";
         }
 
         JButton assassinBotao = new JButton("Assassino");
@@ -77,11 +77,20 @@ public class JogoGUI extends JFrame {
                     janelaAssassino.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
                     JLabel labelAssassino = new JLabel(assassino.descansar());
+                    janelaAssassino.setLayout(new FlowLayout());
                     janelaAssassino.add(labelAssassino);
-                    
-                    janelaAssassino.setVisible(true);
 
-                    painelPrincipal.setEnabled(true);
+                    JButton showInvent = new JButton("Mostrar itens");
+                    showInvent.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent e) {
+                            assassino.showItens();
+                        }
+                    });
+
+                    janelaAssassino.add(showInvent);
+
+                    janelaAssassino.setVisible(true);
+                    painelPrincipal.setVisible(false);
                 }catch(AssassinoException ex){
                     ex.printStackTrace();
                 }
@@ -96,11 +105,24 @@ public class JogoGUI extends JFrame {
                     retornoLabel.setText(mago.falar());
 
                     JFrame janelaMago = new JFrame("Mago");
-                    janelaMago.setSize(400,300);
+                    janelaMago.setSize(400, 300);
                     janelaMago.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                    janelaMago.setVisible(true);
 
-                    painelPrincipal.setEnabled(false); 
+                    JLabel labelMago = new JLabel(mago.descansar());
+                    janelaMago.setLayout(new FlowLayout());
+                    janelaMago.add(labelMago);
+
+                    JButton showInvent = new JButton("Mostrar itens");
+                    showInvent.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent e) {
+                            mago.showItens();
+                        }
+                    });
+
+                    janelaMago.add(showInvent);
+
+                    janelaMago.setVisible(true);
+                    painelPrincipal.setVisible(false);
                 }catch(MagoException ex){
                     ex.printStackTrace();
                 }
@@ -123,7 +145,7 @@ public class JogoGUI extends JFrame {
      private String obterNomePersonagem() throws EntradaInvalidaException {
         String nome = JOptionPane.showInputDialog("Insira o nome do seu personagem:");
         if (nome == null || nome.trim().isEmpty()){
-            throw new EntradaInvalidaException("O nome do personagem não pode estar vazio.");
+            throw new EntradaInvalidaException("O nome do personagem será criado como 'Anônimo'.");
         }
         return nome;
     }
