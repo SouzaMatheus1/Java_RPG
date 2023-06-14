@@ -13,6 +13,13 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+import com.opencsv.CSVReader;
 
 public class JogoGUI extends JFrame {
     private JPanel painelPrincipal;
@@ -35,7 +42,8 @@ public class JogoGUI extends JFrame {
             personagemNome = obterNomePersonagem();
         } catch (EntradaInvalidaException e) {
             JOptionPane.showMessageDialog(this, "Nome de personagem inválido: " + e.getMessage());
-            personagemNome = "Personagem anônimo";
+            List<String> nomesAleatorios = lerNomesDoCSV("nomes.csv");
+            personagemNome = obterNomePersonagem(nomesAleatorios);
         }
 
         JButton assassinBotao = new JButton("Assassino");
@@ -116,6 +124,11 @@ public class JogoGUI extends JFrame {
                     showInvent.addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent e) {
                             mago.showItens();
+                            JButton criarItem = new JButton("Criar item");
+                            criarItem.addActionListener(new ActionListener() {
+
+                                Item 
+                            });
                         }
                     });
 
@@ -165,6 +178,28 @@ public class JogoGUI extends JFrame {
             throw new MagoException("Erro ao criar novo mago: " + e.getMessage());
         }
     }
+
+    private List<String> lerNomesDoCSV(String arquivoCSV) throws IOException {
+        List<String> nomes = new ArrayList<>();
+
+        try (CSVReader reader = new CSVReader(new FileReader(arquivoCSV))) {
+            String[] linha;
+            while ((linha = reader.readNext()) != null) {
+                String nome = linha[0];
+                nomes.add(nome);
+            }
+        }
+
+        return nomes;
+    }
+
+    private String obterNomePersonagem(List<String> nomes) {
+        Random random = new Random();
+        int indice = random.nextInt(nomes.size());
+        return nomes.get(indice);
+    }
+
+
 
     public static void main(String[] args) {
         JogoGUI jogo = new JogoGUI();
