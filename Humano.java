@@ -45,6 +45,15 @@ abstract class Humano{
             System.out.println(item);
         }
     }
+    /*
+     * public ArrayList<Item> showItens(){
+        System.out.println("Itens na bolsa de " + getNome() + ":");
+        for(Item item : itens){
+            item = (Item) item;
+            return item;
+        }
+    }
+     */
 
     public Item selectItem(UUID id){
         Item temp = null;
@@ -77,14 +86,14 @@ abstract class Humano{
         return danoTotal;
     }
 
-    public void addItem(Item item){
+    public String addItem(Item item){
         for(Item itemBolsa : itens){
             if(itemBolsa instanceof ItemDefesa){
                     equiparItem((ItemDefesa)item);
                 }
             }
         itens.add(item);
-        System.out.println("Item '" + item.getNome() + "' adicionado a lista de itens de " + nome + ".");
+        return "1Item '" + item.getNome() + "' adicionado a lista de itens de " + nome + ".";
     }
 
     public void remItem(UUID id){

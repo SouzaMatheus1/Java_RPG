@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import com.opencsv.CSVReader;
+// import com.opencsv.CSVReader;
 
 public class JogoGUI extends JFrame {
     private JPanel painelPrincipal;
@@ -38,6 +38,7 @@ public class JogoGUI extends JFrame {
         painelPrincipal = new JPanel(new CardLayout());
         add(painelPrincipal);
 
+        /*
         try {
             personagemNome = obterNomePersonagem();
         } catch (EntradaInvalidaException e) {
@@ -45,6 +46,15 @@ public class JogoGUI extends JFrame {
             List<String> nomesAleatorios = lerNomesDoCSV("nomes.csv");
             personagemNome = obterNomePersonagem(nomesAleatorios);
         }
+         */
+
+        try{
+            personagemNome = obterNomePersonagem();
+        }catch(EntradaInvalidaException e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+            personagemNome = "Anônimo";
+        }
+
 
         JButton assassinBotao = new JButton("Assassino");
         JButton mageBotao = new JButton("Mago");
@@ -94,8 +104,20 @@ public class JogoGUI extends JFrame {
                             assassino.showItens();
                         }
                     });
+                    JButton criarItem = new JButton("Criar item");
+                    criarItem.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent e) {
+                            String nomeItem = JOptionPane.showInputDialog("Insira o nome do item: ");
+                            double pesoItem = Double.parseDouble(JOptionPane.showInputDialog("Insira o peso do item: "));
+                            // pesoItem = (double) pesoItem;
+                            int curaItem = Integer.parseInt(JOptionPane.showInputDialog("Insira a cura do item: "));
+                            ItemCura cura1 = new ItemCura(nomeItem, pesoItem, curaItem);
+                            assassino.addItem(cura1);
+                        }
+                    });
 
                     janelaAssassino.add(showInvent);
+                    janelaAssassino.add(criarItem);
 
                     janelaAssassino.setVisible(true);
                     painelPrincipal.setVisible(false);
@@ -124,15 +146,23 @@ public class JogoGUI extends JFrame {
                     showInvent.addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent e) {
                             mago.showItens();
-                            JButton criarItem = new JButton("Criar item");
-                            criarItem.addActionListener(new ActionListener() {
-
-                                Item 
-                            });
                         }
+                    });
+                    JButton criarItem = new JButton("Criar item");
+                    criarItem.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent e) {
+                            String nomeItem = JOptionPane.showInputDialog("Insira o nome do item: ");
+                            double pesoItem = Double.parseDouble(JOptionPane.showInputDialog("Insira o peso do item: "));
+                            // pesoItem = (double) pesoItem;
+                            int curaItem = Integer.parseInt(JOptionPane.showInputDialog("Insira a cura do item: "));
+                            ItemCura cura1 = new ItemCura(nomeItem, pesoItem, curaItem);
+                            mago.addItem(cura1);
+                        }
+
                     });
 
                     janelaMago.add(showInvent);
+                    janelaMago.add(criarItem);
 
                     janelaMago.setVisible(true);
                     painelPrincipal.setVisible(false);
@@ -155,7 +185,7 @@ public class JogoGUI extends JFrame {
         setVisible(true);
     }
 
-     private String obterNomePersonagem() throws EntradaInvalidaException {
+    private String obterNomePersonagem() throws EntradaInvalidaException {
         String nome = JOptionPane.showInputDialog("Insira o nome do seu personagem:");
         if (nome == null || nome.trim().isEmpty()){
             throw new EntradaInvalidaException("O nome do personagem será criado como 'Anônimo'.");
@@ -179,6 +209,7 @@ public class JogoGUI extends JFrame {
         }
     }
 
+    /*
     private List<String> lerNomesDoCSV(String arquivoCSV) throws IOException {
         List<String> nomes = new ArrayList<>();
 
@@ -192,13 +223,13 @@ public class JogoGUI extends JFrame {
 
         return nomes;
     }
+     */
 
     private String obterNomePersonagem(List<String> nomes) {
         Random random = new Random();
         int indice = random.nextInt(nomes.size());
         return nomes.get(indice);
     }
-
 
 
     public static void main(String[] args) {
