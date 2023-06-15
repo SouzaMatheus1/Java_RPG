@@ -1,6 +1,6 @@
 import java.util.UUID;
 
-class Assassino extends Humano {
+public class Assassino extends Humano {
     private int pontosStamina;
     
   /*  

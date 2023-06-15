@@ -1,5 +1,7 @@
 import java.util.Random;
 
+// FUNCIONALIDADE EM PRODUÇÃO
+// ALGUMAS OUTRAS TINHAM MAIS PRIORIDADE
 public class Bot {
     private String nome;
     private Humano humano; // Referência para o objeto humano controlado pelo Bot
