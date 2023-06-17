@@ -1,9 +1,13 @@
 import javax.swing.JFrame;
+import javax.swing.*;
+import java.awt.*;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
+import java.awt.Color;
+import java.awt.Graphics;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -27,11 +31,14 @@ public class JogoGUI extends JFrame {
 
     private JPanel painelAssassino;
     private JPanel painelMago;
+    
 
     public JogoGUI() {
         setTitle("Epic Quest");
         setSize(400, 300);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
 
         painelPrincipal = new JPanel(new CardLayout());
         add(painelPrincipal);
