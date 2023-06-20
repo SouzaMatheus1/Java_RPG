@@ -184,8 +184,22 @@ public class JogoGUI extends JFrame {
         gbc.gridx = 0;
         gbc.gridy = 3;
         painelPrincipal.add(painelMago, gbc);
+        //gameloop()
     }
+/*
+    public private gameloop (){
+        boolean gameIsRunning = true;
 
+        while (gameIsRunning) {
+            update();
+            render();
+
+            if (userWantsToQuit()) {
+                gameIsRunning = false;
+            }
+        }
+    }
+*/
     public void exibir() {
         setVisible(true);
     }
