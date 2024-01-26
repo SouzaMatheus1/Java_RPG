@@ -1,2 +1,3 @@
-# PJBL_POO
- Trabalho PJBL feito na matéria de Programação Orientada a Objetos
+# Java RPG
+ Trabalho para a matéria de programação orientada a objetos, 
+ que consiste em um jogo RPG feito em JAVA
